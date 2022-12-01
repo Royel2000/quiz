@@ -10,25 +10,24 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     int a;
-    //bandera sirve para 
+    //la bandera sirve para verificar que se a respondido correctamente
     boolean bandera = false;
-
+    // se selecciona la pregunta al azar
     void random(String valor) {
         //el numero que se calculado es la pregunta
         int random = 0;
-        int min = 0;
-        int max = 6;
+        int min = 0;//número inicio
+        int max = 6;//número final
         int range = max - min + 1;
         int b = (int) (Math.random() * range) + min;
         a = b;
-        System.out.println(a);
     }
-
+    //pregunta,1,2,3,4 (los numero estan en orden de respuesta)
     void enlace(String valor) {
         String opcinepreguntas = null;
         opcinepreguntas = String.valueOf(a);
         switch (opcinepreguntas) {
-            case "0" ->
+            case "0" ->     //pregunta                opcion1    1                opcion2       2           opcion3 3  opcion4 4
                 this.opcion("la infertilidad es...", "imposibilidad de procrear", "que no nazca la planta", "el suelo", "otro");
             case "1" ->
                 this.opcion("la andropausia es...", "no hay embarazo", "proceso en el que las capacidades disminuyen", "todas son correctas", "otro");
@@ -50,17 +49,17 @@ public class Ventana extends javax.swing.JFrame {
         repuestas = String.valueOf(a);
         switch (repuestas) {
             case "0" ->
-                this.verificarRespuesta("1");
+                this.verificarRespuesta("1");//se selecciona la opcion correcta en este caso opcion1
             case "1" ->
-                this.verificarRespuesta("2");
+                this.verificarRespuesta("2");//opcion2
             case "2" ->
                 this.verificarRespuesta("1");
             case "3" ->
-                this.verificarRespuesta("3");
+                this.verificarRespuesta("3");//opcion3
             case "4" ->
                 this.verificarRespuesta("1");
             case "5" ->
-                this.verificarRespuesta("4");
+                this.verificarRespuesta("4");//opcion4
             case "6" ->
                 this.verificarRespuesta("3");
         }
@@ -77,7 +76,7 @@ public class Ventana extends javax.swing.JFrame {
             bandera = false;
         }
     }
-
+    //se rellenan los botones con las opciones antes escritas
     public void opcion(String nombre, String op1, String op2, String op3, String op4) {
         txtPregunta.setText(nombre);
         r1.setText(op1);
@@ -302,7 +301,7 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void r1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r1ActionPerformed
-        // TODO add your handling code here:
+        // boton1
         btSeleccionado = "1";
         re("");
         if (bandera == true) {
@@ -314,7 +313,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_r1ActionPerformed
 
     private void r2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r2ActionPerformed
-        // TODO add your handling code here:
+        // boton2
         btSeleccionado = "2";
         re("");
         if (bandera == true) {
@@ -326,7 +325,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_r2ActionPerformed
 
     private void r3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r3ActionPerformed
-        // TODO add your handling code here:
+        // boton3
         btSeleccionado = "3";
         re("");
         if (bandera == true) {
@@ -338,13 +337,13 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_r3ActionPerformed
 
     private void panelGradient1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelGradient1MouseClicked
-        // TODO add your handling code here:
+        // iniciar juego
         random("");
         enlace("");
     }//GEN-LAST:event_panelGradient1MouseClicked
 
     private void r4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r4ActionPerformed
-        // TODO add your handling code here:
+        // opcion4
         btSeleccionado = "4";
         re("");
         if (bandera == true) {
@@ -356,7 +355,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_r4ActionPerformed
 
     private void panelGradient9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelGradient9MouseClicked
-        // TODO add your handling code here:
+        // boton para salir
         System.exit(0);
     }//GEN-LAST:event_panelGradient9MouseClicked
 
