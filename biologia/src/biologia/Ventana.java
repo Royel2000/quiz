@@ -17,7 +17,7 @@ public class Ventana extends javax.swing.JFrame {
         //el numero que se calculado es la pregunta
         int random = 0;
         int min = 0;//número inicio
-        int max = 6;//número final
+        int max = 8;//número final
         int range = max - min + 1;
         int b = (int) (Math.random() * range) + min;
         a = b;
@@ -41,6 +41,12 @@ public class Ventana extends javax.swing.JFrame {
                 this.opcion("¿A qué edad se presenta mayormente la infertilidad femenina?", "20-40", "40", "60", "45-51");
             case "6" ->
                 this.opcion("¿Que causa la andropausia?","comer mucho", "", " los bajos niveles de testosterona en el cuerpo", "");
+            case "7" ->
+                this.opcion("La andropausia es un proceso natural ? ", "si", "no", "", "");
+            case "8" ->
+                this.opcion("Cuál de estas es una causa de la infertilidad femenina?", "todas", "falta de actividad sexual", "Alteraciones de la ovulación", "ninguna");
+            case "9"->
+                this.opcion("Se puede revertir la infertilidad  ?", "no", "A veces", "si", "es imposible");
         }
     }
 
@@ -62,6 +68,12 @@ public class Ventana extends javax.swing.JFrame {
                 this.verificarRespuesta("4");//opcion4
             case "6" ->
                 this.verificarRespuesta("3");
+            case "7" ->
+                this.verificarRespuesta("1");
+            case "8" ->
+                this.verificarRespuesta("3");
+            case "9" ->
+                this.verificarRespuesta("2");
         }
     }
     String btSeleccionado = null;
