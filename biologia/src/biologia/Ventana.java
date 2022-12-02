@@ -17,7 +17,7 @@ public class Ventana extends javax.swing.JFrame {
         //el numero que se calculado es la pregunta
         int random = 0;
         int min = 0;//número inicio
-        int max = 8;//número final
+        int max = 9;//número final
         int range = max - min + 1;
         int b = (int) (Math.random() * range) + min;
         a = b;
