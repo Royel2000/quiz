@@ -40,7 +40,7 @@ public class Ventana extends javax.swing.JFrame {
             case "5" ->
                 this.opcion("¿A qué edad se presenta mayormente la infertilidad femenina?", "20-40", "40", "60", "45-51");
             case "6" ->
-                this.opcion("¿Que causa la andropausia?","comer mucho", "", " los bajos niveles de testosterona en el cuerpo", "");
+                this.opcion("¿Que causa la andropausia?","comer mucho", "todos", " los bajos niveles de testosterona en el cuerpo", "ninguno");
             case "7" ->
                 this.opcion("La andropausia es un proceso natural ? ", "si", "no", "", "");
             case "8" ->
