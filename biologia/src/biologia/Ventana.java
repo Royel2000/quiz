@@ -174,7 +174,7 @@ public class Ventana extends javax.swing.JFrame {
         panelGradient2.setRadius(30);
 
         r2.setBackground(new java.awt.Color(246, 246, 246));
-        r2.setFont(new java.awt.Font("Roboto Medium", 0, 17)); // NOI18N
+        r2.setFont(new java.awt.Font("Roboto Medium", 1, 17)); // NOI18N
         r2.setForeground(new java.awt.Color(254, 254, 254));
         r2.setBorderPainted(false);
         r2.setContentAreaFilled(false);
@@ -195,7 +195,7 @@ public class Ventana extends javax.swing.JFrame {
         panelGradient5.setRadius(30);
 
         r1.setBackground(new java.awt.Color(87, 87, 87));
-        r1.setFont(new java.awt.Font("Roboto Medium", 0, 17)); // NOI18N
+        r1.setFont(new java.awt.Font("Roboto Medium", 1, 17)); // NOI18N
         r1.setForeground(new java.awt.Color(254, 254, 254));
         r1.setBorderPainted(false);
         r1.setContentAreaFilled(false);
@@ -216,7 +216,7 @@ public class Ventana extends javax.swing.JFrame {
         panelGradient6.setRadius(30);
 
         r4.setBackground(new java.awt.Color(87, 87, 87));
-        r4.setFont(new java.awt.Font("Roboto Medium", 0, 17)); // NOI18N
+        r4.setFont(new java.awt.Font("Roboto Medium", 1, 17)); // NOI18N
         r4.setForeground(new java.awt.Color(254, 254, 254));
         r4.setBorderPainted(false);
         r4.setContentAreaFilled(false);
@@ -236,7 +236,7 @@ public class Ventana extends javax.swing.JFrame {
         panelGradient7.setColorGradient(new java.awt.Color(36, 78, 208));
         panelGradient7.setRadius(30);
 
-        r3.setFont(new java.awt.Font("Roboto Medium", 0, 17)); // NOI18N
+        r3.setFont(new java.awt.Font("Roboto Medium", 1, 17)); // NOI18N
         r3.setForeground(new java.awt.Color(254, 254, 254));
         r3.setBorderPainted(false);
         r3.setContentAreaFilled(false);
