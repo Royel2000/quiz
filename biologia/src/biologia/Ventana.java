@@ -2,13 +2,42 @@ package biologia;
 
 import java.util.Random;
 import javax.swing.JOptionPane;
-
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 public class Ventana extends javax.swing.JFrame {
 
     public Ventana() {
         initComponents();
     }
-
+    
+    public void Reproducir(String nombreSonido) {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(nombreSonido).getAbsoluteFile());
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            System.out.println("Error al reproducir el sonido.");
+        }
+    }
+    public void ReproducirLoop(String nombreSonido) {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(nombreSonido).getAbsoluteFile());
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.loop(1);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            System.out.println("Error al reproducir el sonido.");
+        }
+    }
+    
     int a;
     //la bandera sirve para verificar que se a respondido correctamente
     boolean bandera = false;
@@ -28,25 +57,25 @@ public class Ventana extends javax.swing.JFrame {
         opcinepreguntas = String.valueOf(a);
         switch (opcinepreguntas) {
             case "0" ->     //pregunta                opcion1    1                opcion2       2           opcion3 3  opcion4 4
-                this.opcion("la infertilidad es...", "imposibilidad de procrear", "que no nazca la planta", "el suelo", "otro");
+                this.opcion("La infertilidad es...", "Imposibilidad de procrear", "Que no nazca la planta", "El suelo", "Otro");
             case "1" ->
-                this.opcion("la andropausia es...", "no hay embarazo", "proceso en el que las capacidades disminuyen", "todas son correctas", "otro");
+                this.opcion("La andropausia es unproceso donde...", "No hay embarazo", "Las capacidades disminuyen", "Se puede morir", "Todas son correctas");
             case "2" ->
-                this.opcion("cual de las siguientes opciones no es una causa de la andropausia", "falta de actividad sexual", "nivel bajo de testosterona ", "factores hereditarios", "otro");
+                this.opcion("¿Cuál de las siguientes opciones no es una causa de la andropausia?", "Falta de actividad sexual", "Nivel bajo de testosterona ", "Factores hereditarios", "Otro");
             case "3" ->
-                this.opcion("la andropausia se da en...", "niños", "mujeres", "hombres", "todos");
+                this.opcion("La andropausia se da en...", "Niños", "Mujeres", "Hombres", "Todos");
             case "4" ->
                 this.opcion("¿A qué edad se presenta mayormente la infertilidad masculina?", "40", "10", "50", "30");
             case "5" ->
                 this.opcion("¿A qué edad se presenta mayormente la infertilidad femenina?", "20-40", "40", "60", "45-51");
             case "6" ->
-                this.opcion("¿Que causa la andropausia?","comer mucho", "todos", " los bajos niveles de testosterona en el cuerpo", "ninguno");
+                this.opcion("¿Qué causa la andropausia?","Comer mucho", "Todos", " Los bajos niveles de testosterona en el cuerpo", "Ninguno");
             case "7" ->
-                this.opcion("La andropausia es un proceso natural ? ", "si", "no", "", "");
+                this.opcion("La andropausia es un proceso natural ? ", "Si", "No", "Tal vez", "");
             case "8" ->
-                this.opcion("Cuál de estas es una causa de la infertilidad femenina?", "todas", "falta de actividad sexual", "Alteraciones de la ovulación", "ninguna");
+                this.opcion("Cuál de estas es una causa de la infertilidad femenina?", "Falta de actividad sexual", "Alteraciones de la ovulación", "Ninguna","Todas");
             case "9"->
-                this.opcion("Se puede revertir la infertilidad  ?", "no", "A veces", "si", "es imposible");
+                this.opcion("Se puede revertir la infertilidad  ?", "No", "A veces", "Si", "Es imposible");
         }
     }
 
@@ -81,9 +110,11 @@ public class Ventana extends javax.swing.JFrame {
     public void verificarRespuesta(String correcto) {
 
         if (btSeleccionado == correcto) {
+            Reproducir("/home/trabajo/Música/StarshipSmlByFrom PE1077204_preview.wav");
             JOptionPane.showMessageDialog(null, "correcto");
             bandera = true;
         } else {
+            Reproducir("/home/trabajo/Música/BeepWrongButtonAle MM013101_preview.wav");
             JOptionPane.showMessageDialog(null, "incorrecto");
             bandera = false;
         }
@@ -125,8 +156,6 @@ public class Ventana extends javax.swing.JFrame {
         panelGradient10 = new Panel_gradiend.PanelGradient();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        panelGradient11 = new Panel_gradiend.PanelGradient();
-        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1366, 768));
@@ -294,18 +323,6 @@ public class Ventana extends javax.swing.JFrame {
         panelGradient8.add(jLabel2);
         jLabel2.setBounds(40, 50, 70, 40);
 
-        panelGradient11.setBackground(new java.awt.Color(36, 78, 208));
-        panelGradient11.setColorGradient(new java.awt.Color(199, 30, 163));
-        panelGradient11.setRadius(20);
-
-        jLabel5.setForeground(new java.awt.Color(254, 238, 238));
-        jLabel5.setText("jLabel4");
-        panelGradient11.add(jLabel5);
-        jLabel5.setBounds(30, 10, 60, 17);
-
-        panelGradient8.add(panelGradient11);
-        panelGradient11.setBounds(20, 200, 120, 40);
-
         getContentPane().add(panelGradient8);
         panelGradient8.setBounds(0, 0, 170, 790);
 
@@ -350,6 +367,7 @@ public class Ventana extends javax.swing.JFrame {
 
     private void panelGradient1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelGradient1MouseClicked
         // iniciar juego
+        ReproducirLoop("/home/trabajo/Música/Memories.wav");
         random("");
         enlace("");
     }//GEN-LAST:event_panelGradient1MouseClicked
@@ -411,10 +429,8 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private Panel_gradiend.PanelGradient panelGradient1;
     private Panel_gradiend.PanelGradient panelGradient10;
-    private Panel_gradiend.PanelGradient panelGradient11;
     private Panel_gradiend.PanelGradient panelGradient2;
     private Panel_gradiend.PanelGradient panelGradient3;
     private Panel_gradiend.PanelGradient panelGradient4;
